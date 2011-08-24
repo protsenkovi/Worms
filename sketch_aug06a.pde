@@ -1,5 +1,5 @@
 void setup() {
-  size(screen.width, screen.height);
+  size(width, height);
   stroke(255);
   strokeWeight(0);
   //noStroke();
@@ -37,17 +37,19 @@ void worldInitialize() {
   dqueue.push("icircle", icircle);
   translate(100,0);
 }
-
+  
+  int width = screen.width - 300;
+  int height = screen.height - 300;
   int worldwidth = screen.width;
   int worldheight = screen.height;
   DrawableQueue dqueue = new DrawableQueue();
   ICircle icircle;
-  int translateX = (worldwidth - screen.width)/2;
-  int translateY = (worldheight - screen.height)/2;
+  //int translateX = (worldwidth - screen.width)/2;
+  //int translateY = (worldheight - screen.height)/2;
   
 void draw() {
-    rect(-translateX, -translateY, screen.width + translateX, screen.height + translateY);
-    translate(translateX, translateY);
+    //rect(-translateX, -translateY, screen.width + translateX, screen.height + translateY);
+    //translate(translateX, translateY);
     background(#4D814D);
     dqueue.ai(null);
     dqueue.draw();
@@ -69,16 +71,16 @@ void mouseDragged()
     line(c.x,c.y,mouseX,mouseY);
   }
   if (leftpressed) {
-    translateX = mouseX - leftButtonPressedX + lastTrX;
-    translateY = mouseY - leftButtonPressedY + lastTrY
-    if (translateX < -(worldwidth - screen.width)/2)
-      translateX = -(worldwidth - screen.width)/2;
-    if (translateX > (worldwidth - screen.width))
-      translateX = worldwidth - screen.width;
-    if (translateY < -(worldheight - screen.height)/2)
-      translateX = -(worldheight - screen.height)/2;
-    if (translateY > (worldheight - screen.height))
-      translateX = worldheight - screen.height;    
+//    translateX = mouseX - leftButtonPressedX + lastTrX;
+//    translateY = mouseY - leftButtonPressedY + lastTrY;
+//    if (translateX < -(worldwidth - screen.width)/2)
+//      translateX = -(worldwidth - screen.width)/2;
+//    if (translateX > (worldwidth - screen.width))
+//      translateX = worldwidth - screen.width;
+//    if (translateY < -(worldheight - screen.height)/2)
+//      translateX = -(worldheight - screen.height)/2;
+//    if (translateY > (worldheight - screen.height))
+//      translateX = worldheight - screen.height;    
   }
 }
 
@@ -113,8 +115,8 @@ void mouseReleased() {
      rightpressed = false;     
   } else if (mouseButton == LEFT) {
     leftpressed = false;
-    lastTrX = translateX;
-    lastTrY = translateY;
+//    lastTrX = translateX;
+//    lastTrY = translateY;
   }
 }
 
